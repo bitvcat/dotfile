@@ -4,6 +4,7 @@
 "使用新版的vundle安装插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 "============================
 "  General 基础设置
 "============================
@@ -25,6 +26,206 @@ set nocompatible  	" 去掉讨厌的有关vi一致性模式，避免以前版本
 set autoread        " 文件修改之后自动载入
 set autowrite		" 自动保存
 
+
+
+"============================
+" 插件列表
+"============================
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" ==> 插件
+Plugin 'gmarik/Vundle.vim'
+
+" ==> The NERD tree 以树形结构浏览文件夹中的文件
+Plugin 'scrooloose/nerdtree'
+
+" ==> go-vim
+Plugin 'fatih/vim-go'
+
+" ==> Tagbar 比 taglist 更现代的代码结构浏览工具
+Plugin 'majutsushi/tagbar'
+
+" ==> 括号显示增强
+Plugin 'kien/rainbow_parentheses.vim'
+
+" ==> "快速 加减注释
+Plugin 'scrooloose/nerdcommenter'
+
+" ==>" 输入引号,括号时,自动补全
+Plugin 'Raimondi/delimitMate'
+
+" ==> 文件查找
+Plugin 'kien/ctrlp.vim'
+
+" ==> 
+Plugin 'altercation/vim-colors-solarized'
+
+" ==> 标签导航 要装ctags
+" ctags -R --c++-kinds=+p --fields=+iaS --extra=+q  c++ 使用的ctag
+Plugin 'vim-scripts/taglist.vim'                                                                                                                 
+
+" ==> Lua语法
+"Bundle 'xolox/vim-lua-inspect'
+"Bundle 'xolox/vim-misc'
+
+" ==> AutoComplPop 自动补全
+Plugin 'vim-scripts/AutoComplPop'
+
+" ==> L9
+Plugin 'L9'
+
+" ==> OmniCppComplete 自动补全
+Plugin 'vim-scripts/OmniCppComplete'
+"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
+set omnifunc=omni#cpp#complete#Main
+"set ofu=syntaxcomplete#Complete
+"imap <silent> ` <C-X><C-O>`
+"set completeopt=menu,menuone
+"let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+"let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+"let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+"let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+"let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
+"let OmniCpp_GlobalScopeSearch=1
+"let OmniCpp_DisplayMode=1
+"let OmniCpp_DefaultNamespaces=["std"]
+
+call vundle#end()
+filetype plugin indent on " 启动自动补全
+
+
+
+"============================
+" 插件设置 
+"============================
+" ==> 括号显示增强 配置
+let g:rbpt_colorpairs = [
+			\ ['brown',       'RoyalBlue3'],
+			\ ['Darkblue',    'SeaGreen3'],
+			\ ['darkgray',    'DarkOrchid3'],
+			\ ['darkgreen',   'firebrick3'],
+			\ ['darkcyan',    'RoyalBlue3'],
+			\ ['darkred',     'SeaGreen3'],
+			\ ['darkmagenta', 'DarkOrchid3'],
+			\ ['brown',       'firebrick3'],
+			\ ['gray',        'RoyalBlue3'],
+			\ ['black',       'SeaGreen3'],
+			\ ['darkmagenta', 'DarkOrchid3'],
+			\ ['Darkblue',    'firebrick3'],
+			\ ['darkgreen',   'RoyalBlue3'],
+			\ ['darkcyan',    'SeaGreen3'],
+			\ ['darkred',     'DarkOrchid3'],
+			\ ['red',         'firebrick3'],
+			\ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" ==> 文件查找 配置
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+
+" ==> 配色主题 配置
+syntax enable
+"highlight Normal ctermfg=darkCyan ctermbg=yellow
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+
+" ==> ctags 设置
+"set tags=tags;/
+"ctags"  
+"========================="  
+set tags+=~/tags/systags
+"========================="
+
+let Tlist_Ctags_Cmd="/usr/bin/ctags"
+nnoremap <silent> <F2> :TlistToggle<CR>
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_Auto_Open = 0
+let Tlist_Auto_Update = 1
+let Tlist_Close_On_Select = 0
+let Tlist_Compact_Format = 0
+let Tlist_Display_Prototype = 0
+let Tlist_Display_Tag_Scope = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_File_Fold_Auto_Close = 0
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Hightlight_Tag_On_BufEnter = 1
+let Tlist_Inc_Winwidth = 0
+let Tlist_Max_Submenu_Items = 1
+let Tlist_Max_Tag_Length = 30
+let Tlist_Process_File_Always = 0
+let Tlist_Show_Menu = 0
+let Tlist_Show_One_File = 1
+let Tlist_Sort_Type = "order"
+let Tlist_Use_Horiz_Window = 0
+let Tlist_Use_Right_Window = 0
+let Tlist_WinWidth = 45
+
+" ==> 自动补全 配置
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
+" ==>gotags
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+	\ }
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+
+
+"============================
+"  其他设置
+"============================
 " ==> history存储长度
 set history=2000
 
@@ -47,16 +248,17 @@ if version >= 603
 endif
 
 " ==> 文件类型
-filetype on						" 侦测文件类型
+"filetype on					" 侦测文件类型
 filetype plugin on				" 载入文件类型插件
 filetype indent on				" 针对不同的文件类型采用不同的缩进格式
-filetype plugin indent on		" 启动自动补全
+"filetype plugin indent on		" 启动自动补全
 set viminfo+=!					" 保存全局变量
 set iskeyword+=_,$,@,%,#,-		" 带有如下符号的单词不要被换行分割
 
 " ==> 开启语法高亮
 syntax enable
 syntax on
+
 
 
 "============================
@@ -295,142 +497,3 @@ func! FormartSrc()
 endfunc
 "结束定义FormartSrc
 
-"============================
-" Bundle 设置
-"============================
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" ==> 插件
-Plugin 'gmarik/Vundle.vim'
-
-" ==> The NERD tree 以树形结构浏览文件夹中的文件
-Plugin 'scrooloose/nerdtree'
-
-" ==> Tagbar 比 taglist 更现代的代码结构浏览工具
-Plugin 'majutsushi/tagbar'
-
-" ==> 括号显示增强
-Plugin 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-			\ ['brown',       'RoyalBlue3'],
-			\ ['Darkblue',    'SeaGreen3'],
-			\ ['darkgray',    'DarkOrchid3'],
-			\ ['darkgreen',   'firebrick3'],
-			\ ['darkcyan',    'RoyalBlue3'],
-			\ ['darkred',     'SeaGreen3'],
-			\ ['darkmagenta', 'DarkOrchid3'],
-			\ ['brown',       'firebrick3'],
-			\ ['gray',        'RoyalBlue3'],
-			\ ['black',       'SeaGreen3'],
-			\ ['darkmagenta', 'DarkOrchid3'],
-			\ ['Darkblue',    'firebrick3'],
-			\ ['darkgreen',   'RoyalBlue3'],
-			\ ['darkcyan',    'SeaGreen3'],
-			\ ['darkred',     'DarkOrchid3'],
-			\ ['red',         'firebrick3'],
-			\ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" ==> "快速 加减注释
-Plugin 'scrooloose/nerdcommenter'
-
-" ==>" 输入引号,括号时,自动补全
-Plugin 'Raimondi/delimitMate'
-
-" ==> 文件查找
-Plugin 'kien/ctrlp.vim'
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-
-" ==> 
-Plugin 'altercation/vim-colors-solarized'
-syntax enable
-"highlight Normal ctermfg=darkCyan ctermbg=yellow
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-
-" ==> 标签导航 要装ctags
-" ctags -R --c++-kinds=+p --fields=+iaS --extra=+q  c++ 使用的ctag
-Plugin 'vim-scripts/taglist.vim'                                                                                                                 
-"set tags=tags;/
-"ctags"  
-"========================="  
-set tags+=~/tags/systags
-"========================="
-
-let Tlist_Ctags_Cmd="/usr/bin/ctags"
-nnoremap <silent> <F2> :TlistToggle<CR>
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_Close_On_Select = 0
-let Tlist_Compact_Format = 0
-let Tlist_Display_Prototype = 0
-let Tlist_Display_Tag_Scope = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 0
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Hightlight_Tag_On_BufEnter = 1
-let Tlist_Inc_Winwidth = 0
-let Tlist_Max_Submenu_Items = 1
-let Tlist_Max_Tag_Length = 30
-let Tlist_Process_File_Always = 0
-let Tlist_Show_Menu = 0
-let Tlist_Show_One_File = 1
-let Tlist_Sort_Type = "order"
-let Tlist_Use_Horiz_Window = 0
-let Tlist_Use_Right_Window = 0
-let Tlist_WinWidth = 45
-
-" ==> Lua语法
-"Bundle 'xolox/vim-lua-inspect'
-"Bundle 'xolox/vim-misc'
-
-" ==> AutoComplPop 自动补全
-Plugin 'vim-scripts/AutoComplPop'
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-
-" ==> L9
-Plugin 'L9'
-
-" ==> OmniCppComplete 自动补全
-Plugin 'vim-scripts/OmniCppComplete'
-"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
-set omnifunc=omni#cpp#complete#Main
-"set ofu=syntaxcomplete#Complete
-"imap <silent> ` <C-X><C-O>`
-"set completeopt=menu,menuone
-"let OmniCpp_MayCompleteDot = 1 " autocomplete with .
-"let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
-"let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
-"let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
-"let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-"let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype  in popup window
-"let OmniCpp_GlobalScopeSearch=1
-"let OmniCpp_DisplayMode=1
-"let OmniCpp_DefaultNamespaces=["std"]
-
-call vundle#end()
-filetype plugin indent on 
