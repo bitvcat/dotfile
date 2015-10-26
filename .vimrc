@@ -495,6 +495,13 @@ colorscheme molokai
 let g:rehash256 = 1
 set t_Co=256
 let g:neocomplete#enable_at_startup = 1 "实时代码补全
+" 实用mappings
+"转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)	 
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+
 
 " ==> 自动补全 配置
 "au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
