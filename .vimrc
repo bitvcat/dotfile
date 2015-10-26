@@ -51,7 +51,7 @@ Plugin 'fatih/molokai'
 Plugin 'Shougo/neocomplete.vim'
 
 " ==> golang 代码模板
-Plugin 'SirVer/ultisnips' "有点小问题
+Plugin 'SirVer/ultisnips'
 
 " ==> Tagbar 比 taglist 更现代的代码结构浏览工具
 Plugin 'majutsushi/tagbar'
@@ -80,7 +80,7 @@ Plugin 'vim-scripts/taglist.vim'
 "Bundle 'xolox/vim-misc'
 
 " ==> AutoComplPop 自动补全
-Plugin 'vim-scripts/AutoComplPop'
+"Plugin 'vim-scripts/AutoComplPop' " 与neocomplete有点冲突
 
 " ==> L9
 Plugin 'L9'
