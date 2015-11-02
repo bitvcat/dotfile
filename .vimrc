@@ -294,6 +294,7 @@ autocmd BufNewFile * normal G
 " 快捷键
 "============================
 " ==> 常用快捷键
+map <F11> <C-w><Left>	"F11 上一个窗口
 map <F12> <C-w>w		"F12 窗口切换
 
 " ==> F3 Tagbar开关
