@@ -176,6 +176,7 @@ set noexpandtab		" 不要用空格代替制表符
 "set expandtab      " 将Tab自动转化成空格 
 set smarttab		" 在行和段开始处使用制表符
 "nmap tt :%s/\t/    /g<CR>	"将tab替换为空格
+set pastetoggle=<F10> "解决vim负责缩进的问题，参考：http://my.oschina.net/joshuazhan/blog/122539
 
 " ==> 状态行
 autocmd InsertEnter * se cul    " 用浅色高亮当前行  
