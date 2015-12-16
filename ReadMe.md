@@ -4,4 +4,5 @@
 
 vim快捷键可以[点这里](http://domicat.me/2015/07/28/2015-7-28-vim-config-and-plugin/)
 
+
 ![pic](/vim.png) 
