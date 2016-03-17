@@ -413,11 +413,13 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
 " ==> 配色主题 配置
-syntax enable
+"syntax enable
+"colorscheme solarized			"暂时不使用这个主题
+"let g:solarized_termcolors=256	"注意：命令行模式下要设置
 "highlight Normal ctermfg=darkCyan ctermbg=yellow
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
 
 " ==> ctags 设置
 "set tags=tags;/
