@@ -299,10 +299,10 @@ map <F11> <C-w><Left>	"F11 上一个窗口
 map <F12> <C-w>w		"F12 窗口切换
 
 " ==> F3 Tagbar开关
-nmap <F3> :TagbarToggle<CR> <C-w>w
+nmap <F4> :TagbarToggle<CR> <C-w>w
 
 " ==> F4 资源管理器
-map <F4> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " ==> F7 生成Tags文件
 map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>:TlistUpdate<CR>
@@ -428,7 +428,7 @@ let g:ctrlp_follow_symlinks=1
 set tags+=~/tags/systags
 "========================="
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
-nnoremap <silent> <F2> :TlistToggle<CR>
+nnoremap <silent> <F3> :TlistToggle<CR>
 let Tlist_Auto_Highlight_Tag = 1
 let Tlist_Auto_Open = 0
 let Tlist_Auto_Update = 1
@@ -445,12 +445,12 @@ let Tlist_Inc_Winwidth = 0
 let Tlist_Max_Submenu_Items = 1
 let Tlist_Max_Tag_Length = 30
 let Tlist_Process_File_Always = 0
-let Tlist_Show_Menu = 0
+let Tlist_Show_Menu = 1
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "order"
 let Tlist_Use_Horiz_Window = 0
 let Tlist_Use_Right_Window = 0
-let Tlist_WinWidth = 45
+let Tlist_WinWidth = 37
 
 " ==> 自动补全 配置
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -523,4 +523,7 @@ set omnifunc=omni#cpp#complete#Main
 "let OmniCpp_GlobalScopeSearch=1
 "let OmniCpp_DisplayMode=1
 "let OmniCpp_DefaultNamespaces=["std"]
+
+" ==> Tmux背景颜色设置
+"set term=screen-256color
 
