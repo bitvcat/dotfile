@@ -88,6 +88,9 @@ Plugin 'L9'
 " ==> OmniCppComplete 自动补全
 Plugin 'vim-scripts/OmniCppComplete'
 
+" ==> vim-powerline vim状态栏
+Plugin 'Lokaltog/vim-powerline'
+
 call vundle#end()
 filetype plugin indent on " 启动自动补全
 
@@ -496,9 +499,9 @@ let g:go_highlight_operators = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_build_constraints = 1
 let g:molokai_original = 1 "molokai 配色主题
-colorscheme molokai
 let g:rehash256 = 1
 set t_Co=256
+colorscheme molokai
 let g:neocomplete#enable_at_startup = 1 "实时代码补全
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
@@ -527,3 +530,8 @@ set omnifunc=omni#cpp#complete#Main
 " ==> Tmux背景颜色设置
 "set term=screen-256color
 
+
+" ==> vim-powerline相关配置
+set encoding=utf-8
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
