@@ -76,7 +76,7 @@ Plugin 'vim-scripts/taglist.vim'
 
 " ==> Lua语法
 Plugin 'xolox/vim-lua-inspect'
-"Bundle 'xolox/vim-misc'
+Plugin 'xolox/vim-misc'
 
 " ==> AutoComplPop 自动补全
 "Plugin 'vim-scripts/AutoComplPop' " 与neocomplete有点冲突
