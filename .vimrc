@@ -532,5 +532,6 @@ set omnifunc=omni#cpp#complete#Main
 
 " ==> vim-powerline相关配置
 set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
 set laststatus=2
+"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode' "改变状态栏的分隔符"
