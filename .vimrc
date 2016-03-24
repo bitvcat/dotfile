@@ -25,8 +25,7 @@ set go=             " 不要图形按钮
 set nocompatible  	" 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set autoread        " 文件修改之后自动载入
 set autowrite		" 自动保存
-
-
+set backspace=indent,eol,start "解决vim insert模式下退格键无法使用的问题 参见：http://www.cnblogs.com/shaojun/archive/2011/01/28/1946632.html
 
 "============================
 " 插件列表
@@ -76,7 +75,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/taglist.vim'                                                                                                                 
 
 " ==> Lua语法
-"Bundle 'xolox/vim-lua-inspect'
+Plugin 'xolox/vim-lua-inspect'
 "Bundle 'xolox/vim-misc'
 
 " ==> AutoComplPop 自动补全
