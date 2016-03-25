@@ -75,8 +75,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/taglist.vim'                                                                                                                 
 
 " ==> Lua语法
-Plugin 'xolox/vim-lua-inspect'
-Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-lua-inspect'
+"Plugin 'xolox/vim-misc'
 
 " ==> AutoComplPop 自动补全
 "Plugin 'vim-scripts/AutoComplPop' " 与neocomplete有点冲突
@@ -301,9 +301,9 @@ map <F11> <C-w>W	"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能�
 map <F12> <C-w>w	"F12 窗口切换
 
 " ==> F3 Tagbar开关
-nmap <F4> :TagbarToggle<CR> <C-w>w
+nmap <F3> :TagbarToggle<CR> <C-w>w
 
-" ==> F4 资源管理器
+" ==> F2 资源管理器
 map <F2> :NERDTreeToggle<CR>
 
 " ==> F7 生成Tags文件
@@ -409,7 +409,7 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|.rvm$'
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
+let g:ctrlp_max_height=25
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
