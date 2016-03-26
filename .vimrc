@@ -300,8 +300,8 @@ autocmd BufNewFile * normal G
 map <F11> <C-w>W	"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
 map <F12> <C-w>w	"F12 窗口切换
 
-" ==> F3 Tagbar开关
-nmap <F3> :TagbarToggle<CR> <C-w>w
+" ==> F4 Tagbar开关
+nmap <F4> :TagbarToggle<CR> <C-w>w
 
 " ==> F2 资源管理器
 map <F2> :NERDTreeToggle<CR>
