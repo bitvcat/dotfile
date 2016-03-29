@@ -211,11 +211,13 @@ if has("autocmd")
 				\ endif
 endif
 "启动vim时自动打开NERDTree
-"autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree
 "当打开vim且没有文件时自动打开NERDTree
-"autocmd vimenter * if !argc() | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ==> quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
@@ -301,6 +303,7 @@ map <F11> <C-w>W	"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能�
 map <F12> <C-w>w	"F12 窗口切换
 
 " ==> F4 Tagbar开关
+let g:tagbar_ctags_bin = 'ctags'
 nmap <F4> :TagbarToggle<CR> <C-w>w
 
 " ==> F2 资源管理器
