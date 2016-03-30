@@ -211,7 +211,7 @@ if has("autocmd")
 				\ endif
 endif
 "启动vim时自动打开NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 "当打开vim且没有文件时自动打开NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
