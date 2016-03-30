@@ -25,8 +25,7 @@ set go=             " 不要图形按钮
 set nocompatible  	" 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set autoread        " 文件修改之后自动载入
 set autowrite		" 自动保存
-
-
+set backspace=indent,eol,start "解决vim insert模式下退格键无法使用的问题 参见：http://www.cnblogs.com/shaojun/archive/2011/01/28/1946632.html
 
 "============================
 " 插件列表
@@ -71,13 +70,13 @@ Plugin 'kien/ctrlp.vim'
 " ==> 主题配色插件
 Plugin 'altercation/vim-colors-solarized'
 
-" ==> 标签导航 要装ctags
+" ==> 标签导航 要装ctags(推荐使用tagbar)
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+q  c++ 使用的ctag
-Plugin 'vim-scripts/taglist.vim'                                                                                                                 
+"Plugin 'vim-scripts/taglist.vim'                                                                                                                 
 
 " ==> Lua语法
-"Bundle 'xolox/vim-lua-inspect'
-"Bundle 'xolox/vim-misc'
+"Plugin 'xolox/vim-lua-inspect'
+"Plugin 'xolox/vim-misc'
 
 " ==> AutoComplPop 自动补全
 "Plugin 'vim-scripts/AutoComplPop' " 与neocomplete有点冲突
@@ -87,6 +86,9 @@ Plugin 'L9'
 
 " ==> OmniCppComplete 自动补全
 Plugin 'vim-scripts/OmniCppComplete'
+
+" ==> vim-powerline vim状态栏
+Plugin 'Lokaltog/vim-powerline'
 
 call vundle#end()
 filetype plugin indent on " 启动自动补全
@@ -211,9 +213,10 @@ endif
 "启动vim时自动打开NERDTree
 "autocmd vimenter * NERDTree
 "当打开vim且没有文件时自动打开NERDTree
-"autocmd vimenter * if !argc() | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ==> quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
@@ -295,17 +298,19 @@ autocmd BufNewFile * normal G
 " 快捷键
 "============================
 " ==> 常用快捷键
-map <F11> <C-w><Left>	"F11 上一个窗口
-map <F12> <C-w>w		"F12 窗口切换
+map <F11> <C-w>W	"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
+map <F12> <C-w>w	"F12 窗口切换
 
-" ==> F3 Tagbar开关
-nmap <F3> :TagbarToggle<CR> <C-w>w
+" ==> F4 Tagbar开关
+let g:tagbar_ctags_bin = 'ctags'
+nmap <F4> :TagbarToggle<CR> <C-w>w
 
-" ==> F4 资源管理器
-map <F4> :NERDTreeToggle<CR>
+" ==> F2 资源管理器
+map <F2> :NERDTreeToggle<CR>
 
 " ==> F7 生成Tags文件
-map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>:TlistUpdate<CR>
+map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+":TlistUpdate<CR>  "不注释就接在上一行尾部，但是现在不用taglist插件了，就注释了
 
 " ==> C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
@@ -413,11 +418,13 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
 " ==> 配色主题 配置
-syntax enable
+"syntax enable
+"colorscheme solarized			"暂时不使用这个主题
+"let g:solarized_termcolors=256	"注意：命令行模式下要设置
 "highlight Normal ctermfg=darkCyan ctermbg=yellow
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+"let g:solarized_termtrans=1
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
 
 " ==> ctags 设置
 "set tags=tags;/
@@ -426,29 +433,29 @@ let g:solarized_visibility="normal"
 set tags+=~/tags/systags
 "========================="
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
-nnoremap <silent> <F2> :TlistToggle<CR>
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_Close_On_Select = 0
-let Tlist_Compact_Format = 0
-let Tlist_Display_Prototype = 0
-let Tlist_Display_Tag_Scope = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 0
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Hightlight_Tag_On_BufEnter = 1
-let Tlist_Inc_Winwidth = 0
-let Tlist_Max_Submenu_Items = 1
-let Tlist_Max_Tag_Length = 30
-let Tlist_Process_File_Always = 0
-let Tlist_Show_Menu = 0
-let Tlist_Show_One_File = 1
-let Tlist_Sort_Type = "order"
-let Tlist_Use_Horiz_Window = 0
-let Tlist_Use_Right_Window = 0
-let Tlist_WinWidth = 45
+"nnoremap <silent> <F3> :TlistToggle<CR>
+"let Tlist_Auto_Highlight_Tag = 1
+"let Tlist_Auto_Open = 0
+"let Tlist_Auto_Update = 1
+"let Tlist_Close_On_Select = 0
+"let Tlist_Compact_Format = 0
+"let Tlist_Display_Prototype = 0
+"let Tlist_Display_Tag_Scope = 1
+"let Tlist_Enable_Fold_Column = 0
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_File_Fold_Auto_Close = 0
+"let Tlist_GainFocus_On_ToggleOpen = 1
+"let Tlist_Hightlight_Tag_On_BufEnter = 1
+"let Tlist_Inc_Winwidth = 0
+"let Tlist_Max_Submenu_Items = 1
+"let Tlist_Max_Tag_Length = 30
+"let Tlist_Process_File_Always = 0
+"let Tlist_Show_Menu = 1
+"let Tlist_Show_One_File = 1
+"let Tlist_Sort_Type = "order"
+"let Tlist_Use_Horiz_Window = 0
+"let Tlist_Use_Right_Window = 0
+"let Tlist_WinWidth = 37
 
 " ==> 自动补全 配置
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -494,9 +501,9 @@ let g:go_highlight_operators = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_build_constraints = 1
 let g:molokai_original = 1 "molokai 配色主题
-colorscheme molokai
 let g:rehash256 = 1
 set t_Co=256
+colorscheme molokai
 let g:neocomplete#enable_at_startup = 1 "实时代码补全
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
@@ -522,3 +529,12 @@ set omnifunc=omni#cpp#complete#Main
 "let OmniCpp_DisplayMode=1
 "let OmniCpp_DefaultNamespaces=["std"]
 
+" ==> Tmux背景颜色设置
+"set term=screen-256color
+
+
+" ==> vim-powerline相关配置
+set encoding=utf-8
+set laststatus=2
+"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode' "改变状态栏的分隔符"
