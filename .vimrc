@@ -90,6 +90,9 @@ Plugin 'vim-scripts/OmniCppComplete'
 " ==> vim-powerline vim状态栏
 Plugin 'Lokaltog/vim-powerline'
 
+" ==> svn 插件
+Plugin 'vim-scripts/vcscommand.vim'
+
 call vundle#end()
 filetype plugin indent on " 启动自动补全
 
@@ -211,7 +214,7 @@ if has("autocmd")
 				\ endif
 endif
 "启动vim时自动打开NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 "当打开vim且没有文件时自动打开NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -298,8 +301,16 @@ autocmd BufNewFile * normal G
 " 快捷键
 "============================
 " ==> 常用快捷键
-map <F11> <C-w>W	"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
-map <F12> <C-w>w	"F12 窗口切换
+"F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
+map <F11> <C-w>W
+"F12 窗口切换
+map <F12> <C-w>w
+
+" ==> svn 快捷键
+nmap <S-d> :VCSDiff<CR>
+nmap <S-l> :VCSLog<CR>
+nmap <S-u> :VCSUpdate<CR>
+nmap <S-c> :VCSCommit<CR>
 
 " ==> F4 Tagbar开关
 let g:tagbar_ctags_bin = 'ctags'
