@@ -310,7 +310,7 @@ map <F12> <C-w>w
 nmap <S-d> :VCSDiff<CR>
 nmap <S-l> :VCSLog<CR>
 nmap <S-u> :VCSUpdate<CR>
-nmap <S-c> :VCSCommit<CR>
+nmap <S-c> :VCSCommit<CR>i
 
 " ==> F4 Tagbar开关
 let g:tagbar_ctags_bin = 'ctags'
