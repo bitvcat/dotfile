@@ -2,3 +2,4 @@
 使用[vundle](http://github.com/VundleVim/Vundle.Vim)管理插件。
 
 详细介绍[点这里](http://domicat.me/2015/07/28/2015-7-28-vim-config-and-plugin/)
+
