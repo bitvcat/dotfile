@@ -301,6 +301,8 @@ autocmd BufNewFile * normal G
 " 快捷键
 "============================
 " ==> 常用快捷键
+" F4关闭窗口快捷键
+map <F4> :close<CR>
 "F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
 map <F11> <C-w>W
 "F12 窗口切换
@@ -313,9 +315,9 @@ nmap <S-l> :VCSLog<CR>
 nmap <S-u> :VCSUpdate<CR>
 nmap <S-c> :VCSCommit<CR>i
 
-" ==> F4 Tagbar开关
+" ==> F3 Tagbar开关
 let g:tagbar_ctags_bin = 'ctags'
-nmap <F4> :TagbarToggle<CR> <C-w>w
+nmap <F3> :TagbarToggle<CR> <C-w>w
 
 " ==> F2 资源管理器
 map <F2> :NERDTreeToggle<CR>
