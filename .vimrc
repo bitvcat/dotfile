@@ -308,6 +308,7 @@ map <F12> <C-w>w
 
 " ==> svn 快捷键
 nmap <S-d> :VCSDiff<CR>
+nmap <S-r> :VCSRevert<CR>
 nmap <S-l> :VCSLog<CR>
 nmap <S-u> :VCSUpdate<CR>
 nmap <S-c> :VCSCommit<CR>i
