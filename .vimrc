@@ -320,7 +320,8 @@ nmap <F4> :TagbarToggle<CR> <C-w>w
 map <F2> :NERDTreeToggle<CR>
 
 " ==> F7 生成Tags文件
-map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>:TlistUpdate<CR>
+map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+":TlistUpdate<CR>  "不注释就接在上一行尾部，但是现在不用taglist插件了，就注释了
 
 " ==> C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
