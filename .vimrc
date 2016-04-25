@@ -307,6 +307,7 @@ map <F4> :close<CR>
 map <F11> <C-w>W
 "F12 窗口切换
 map <F12> <C-w>w
+map <C-k><Up> :vsplit<CR><F12>
 
 " ==> svn 快捷键
 nmap <S-d> :VCSDiff<CR>
