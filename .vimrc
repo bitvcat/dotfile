@@ -557,4 +557,6 @@ let g:EasyGrepMode = 2     " All:0, Open Buffers:1, TrackExt:2,
 let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1,使用vimgrep
 let g:EasyGrepRecursive  = 1 " Recursive searching,递归搜索
 let g:EasyGrepIgnoreCase = 1 " not ignorecase:0,大小写敏感
+let g:EasyGrepJumpToMatch = 0 " 不要打开第一个匹配到的文件
+let g:EasyGrepWindowPosition = "botright" " quickfix 显示位置
 let g:EasyGrepFilesToExclude = "tags,*.bak,*~,cscope.*,.a,.o,.pyc"
