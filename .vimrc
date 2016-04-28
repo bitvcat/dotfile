@@ -304,11 +304,11 @@ autocmd BufNewFile * normal G
 "============================
 " ==> 常用快捷键
 " F4关闭窗口快捷键
-map <F4> :close<CR>
+nmap <F4> :close<CR>
 "F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
-map <F11> <C-w>W
+nmap <F11> <C-w>W
 "F12 窗口切换
-map <F12> <C-w>w
+nmap <F12> <C-w>w
 map <C-k><Up> :vsplit<CR><F12>
 
 " ==> svn 快捷键
