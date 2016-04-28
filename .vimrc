@@ -4,7 +4,6 @@
 "使用新版的vundle安装插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 "============================
 "  General 基础设置
 "============================
@@ -26,6 +25,7 @@ set nocompatible  	" 去掉讨厌的有关vi一致性模式，避免以前版本
 set autoread        " 文件修改之后自动载入
 set autowrite		" 自动保存
 set backspace=indent,eol,start "解决vim insert模式下退格键无法使用的问题 参见：http://www.cnblogs.com/shaojun/archive/2011/01/28/1946632.html
+
 
 "============================
 " 插件列表
@@ -93,9 +93,11 @@ Plugin 'Lokaltog/vim-powerline'
 " ==> svn 插件
 Plugin 'vim-scripts/vcscommand.vim'
 
+" ==> easygrep
+Plugin 'dkprice/vim-easygrep'
+
 call vundle#end()
 filetype plugin indent on " 启动自动补全
-
 
 
 "============================
@@ -133,7 +135,6 @@ set iskeyword+=_,$,@,%,#,-		" 带有如下符号的单词不要被换行分割
 " ==> 开启语法高亮
 syntax enable
 syntax on
-
 
 
 "============================
@@ -252,6 +253,7 @@ set fillchars+=stl:\ ,stlnc:\
 autocmd! bufwritepost _vimrc source % 			" vimrc文件修改之后自动加载。 windows。
 autocmd! bufwritepost .vimrc source % 			" vimrc文件修改之后自动加载。 linux。
 
+
 "============================
 " 新文件标题
 "============================
@@ -316,16 +318,12 @@ nmap <S-l> :VCSLog<CR>
 nmap <S-u> :VCSUpdate<CR>
 nmap <S-c> :VCSCommit<CR>i
 
-" ==> F3 Tagbar开关
-let g:tagbar_ctags_bin = 'ctags'
-nmap <F3> :TagbarToggle<CR> <C-w>w
-
 " ==> F2 资源管理器
 map <F2> :NERDTreeToggle<CR>
 
-" ==> F7 生成Tags文件
-map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
-":TlistUpdate<CR>  "不注释就接在上一行尾部，但是现在不用taglist插件了，就注释了
+" ==> F3 Tagbar开关
+let g:tagbar_ctags_bin = 'ctags'
+nmap <F3> :TagbarToggle<CR> <C-w>w
 
 " ==> C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
@@ -355,14 +353,6 @@ func! CompileRunGcc()
 	endif
 endfunc
 
-" ==> C,C++的调试
-map <F8> :call Rungdb()<CR>
-func! Rungdb()
-	exec "w"
-	exec "!g++ % -g -o %<"
-	exec "!gdb ./%<"
-endfunc
-
 " ==> 代码格式优化化
 map <F6> :call FormartSrc()<CR><CR>
 "定义FormartSrc()
@@ -390,6 +380,17 @@ func! FormartSrc()
 endfunc
 "结束定义FormartSrc
 
+" ==> F7 生成Tags文件
+map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+":TlistUpdate<CR>  "不注释就接在上一行尾部，但是现在不用taglist插件了，就注释了
+
+" ==> C,C++的调试
+map <F8> :call Rungdb()<CR>
+func! Rungdb()
+	exec "w"
+	exec "!g++ % -g -o %<"
+	exec "!gdb ./%<"
+endfunc
 
 
 "============================
@@ -526,8 +527,6 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-
-
 " ==> 自动补全 配置
 "au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
 set omnifunc=omni#cpp#complete#Main
@@ -547,9 +546,15 @@ set omnifunc=omni#cpp#complete#Main
 " ==> Tmux背景颜色设置
 "set term=screen-256color
 
-
 " ==> vim-powerline相关配置
 set encoding=utf-8
 set laststatus=2
 "let g:Powerline_symbols = 'fancy'
 let g:Powerline_symbols = 'unicode' "改变状态栏的分隔符"
+
+" ==> easygrep 插件设置（参考：http://www.jianshu.com/p/3fb1b2170540）
+let g:EasyGrepMode = 2     " All:0, Open Buffers:1, TrackExt:2, 
+let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1,使用vimgrep
+let g:EasyGrepRecursive  = 1 " Recursive searching,递归搜索
+let g:EasyGrepIgnoreCase = 1 " not ignorecase:0,大小写敏感
+let g:EasyGrepFilesToExclude = "tags,*.bak,*~,cscope.*,.a,.o,.pyc"
