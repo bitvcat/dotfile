@@ -303,8 +303,8 @@ autocmd BufNewFile * normal G
 " 快捷键
 "============================
 " ==> 常用快捷键
-" F4关闭窗口快捷键
-nmap <F4> :close<CR>
+" ctrl+x关闭窗口快捷键
+nmap <C-x> :close<CR>
 "F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
 nmap <F11> <C-w>W
 "F12 窗口切换
@@ -321,9 +321,9 @@ nmap <S-c> :VCSCommit<CR>i
 " ==> F2 资源管理器
 map <F2> :NERDTreeToggle<CR>
 
-" ==> F3 Tagbar开关
+" ==> F4 Tagbar开关
 let g:tagbar_ctags_bin = 'ctags'
-nmap <F3> :TagbarToggle<CR> <C-w>w
+nmap <F4> :TagbarToggle<CR> <C-w>w
 
 " ==> C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
