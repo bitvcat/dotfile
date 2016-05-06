@@ -550,7 +550,8 @@ set omnifunc=omni#cpp#complete#Main
 set encoding=utf-8
 set laststatus=2
 "let g:Powerline_symbols = 'fancy'
-let g:Powerline_symbols = 'unicode' "改变状态栏的分隔符"
+"改变状态栏的分隔符
+let g:Powerline_symbols = 'unicode' 
 
 " ==> easygrep 插件设置（参考：http://www.jianshu.com/p/3fb1b2170540）
 let g:EasyGrepMode = 2     " All:0, Open Buffers:1, TrackExt:2, 
