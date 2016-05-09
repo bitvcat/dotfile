@@ -323,7 +323,7 @@ map <F2> :NERDTreeToggle<CR>
 
 " ==> F4 Tagbar开关
 let g:tagbar_ctags_bin = 'ctags'
-nmap <F4> :TagbarToggle<CR> <C-w>w
+nmap <F4> :TagbarToggle<CR>
 
 " ==> C，C++ 按F5编译运行
 map <F5> :call CompileRunGcc()<CR>
