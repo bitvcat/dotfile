@@ -304,7 +304,7 @@ autocmd BufNewFile * normal G
 "============================
 " ==> 常用快捷键
 " ctrl+x关闭窗口快捷键
-nmap <C-x> :close<CR>
+nmap <C-c> :close<CR>
 "F11 上一个窗口(也可以使用 <C-w><Left>,但是不能滚动)
 nmap <F11> <C-w>W
 "F12 窗口切换
