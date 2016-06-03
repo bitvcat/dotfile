@@ -123,6 +123,7 @@ if version >= 603
 	set helplang=cn
 	set encoding=utf-8
 endif
+set fileencodings=utf-8,gb18030,utf-16,big5
 
 " ==> 文件类型
 "filetype on					" 侦测文件类型
