@@ -46,7 +46,7 @@ Plugin 'fatih/vim-go'
 " ==> go-vim molokai
 Plugin 'fatih/molokai'
 
-" ==> golang 实时代码补全提示
+" ==> 实时代码补全提示
 Plugin 'Shougo/neocomplete.vim'
 
 " ==> golang 代码模板
@@ -85,7 +85,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'L9'
 
 " ==> OmniCppComplete 自动补全
-Plugin 'vim-scripts/OmniCppComplete'
+"Plugin 'vim-scripts/OmniCppComplete'
 
 " ==> vim-powerline vim状态栏
 Plugin 'Lokaltog/vim-powerline'
@@ -521,16 +521,20 @@ let g:molokai_original = 1 "molokai 配色主题
 let g:rehash256 = 1
 set t_Co=256
 colorscheme molokai
-let g:neocomplete#enable_at_startup = 1 "实时代码补全
+hi cursorline cterm=underline
+"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)	 
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
+" ==> 实时代码补全提示
+let g:neocomplete#enable_at_startup = 1 "实时代码补全
+
 " ==> 自动补全 配置
 "au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
-set omnifunc=omni#cpp#complete#Main
+"set omnifunc=omni#cpp#complete#Main
 "set ofu=syntaxcomplete#Complete
 "imap <silent> ` <C-X><C-O>`
 "set completeopt=menu,menuone
