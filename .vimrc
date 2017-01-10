@@ -521,8 +521,9 @@ let g:molokai_original = 1 "molokai 配色主题
 let g:rehash256 = 1
 set t_Co=256
 colorscheme molokai
-hi cursorline cterm=underline
-"hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi cursorline cterm=underline
+"lightcyan 或者 darkred
+hi CursorLine cterm=NONE ctermbg=darkred
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)	 
