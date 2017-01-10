@@ -67,8 +67,8 @@ Plugin 'Raimondi/delimitMate'
 " ==> 文件查找
 Plugin 'kien/ctrlp.vim'
 
-" ==> 主题配色插件
-Plugin 'altercation/vim-colors-solarized'
+" ==> 主题配色插件,废弃，使用fatih/molokai
+"Plugin 'altercation/vim-colors-solarized'
 
 " ==> 标签导航 要装ctags(推荐使用tagbar)
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+q  c++ 使用的ctag
