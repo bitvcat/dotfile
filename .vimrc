@@ -96,6 +96,9 @@ Plugin 'vim-scripts/vcscommand.vim'
 " ==> easygrep
 Plugin 'dkprice/vim-easygrep'
 
+" ==> asyncrun
+Plugin 'skywind3000/asyncrun.vim'
+
 call vundle#end()
 filetype plugin indent on " 启动自动补全
 
@@ -523,7 +526,7 @@ set t_Co=256
 colorscheme molokai
 "hi cursorline cterm=underline
 "lightcyan 或者 darkred
-hi CursorLine cterm=NONE ctermbg=darkred
+hi CursorLine cterm=NONE ctermbg=239
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)	 
