@@ -19,7 +19,7 @@ set sm
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
-set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示  
+set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示
 set go=             " 不要图形按钮
 set nocompatible  	" 去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 set autoread        " 文件修改之后自动载入
@@ -72,7 +72,7 @@ Plugin 'kien/ctrlp.vim'
 
 " ==> 标签导航 要装ctags(推荐使用tagbar)
 " ctags -R --c++-kinds=+p --fields=+iaS --extra=+q  c++ 使用的ctag
-"Plugin 'vim-scripts/taglist.vim'                                                                                                                 
+"Plugin 'vim-scripts/taglist.vim'
 
 " ==> Lua语法
 "Plugin 'xolox/vim-lua-inspect'
@@ -183,19 +183,19 @@ set tabstop=4		" Tab键的宽度
 set softtabstop=4	" 统一缩进为4
 set shiftwidth=4
 set noexpandtab		" 不要用空格代替制表符
-"set expandtab      " 将Tab自动转化成空格 
+"set expandtab      " 将Tab自动转化成空格
 set smarttab		" 在行和段开始处使用制表符
 "nmap tt :%s/\t/    /g<CR>	"将tab替换为空格
 set pastetoggle=<F10> "解决vim复制缩进的问题，参考：http://my.oschina.net/joshuazhan/blog/122539
 
 " ==> 状态行
-autocmd InsertEnter * se cul    " 用浅色高亮当前行  
-set ruler           			" 显示标尺  
+autocmd InsertEnter * se cul    " 用浅色高亮当前行
+set ruler           			" 显示标尺
 set showcmd         			" 输入的命令显示出来，看的清楚些
 set showmode
-set scrolloff=3     			" 光标移动到buffer的顶部和底部时保持3行距离  
-"set statusline=%F%m%r%h%w\ [Format=%{&ff}]\ [Type=%Y]\[Pos=%l,%v][%p%%]\[Time=%{strftime(\"%Y/%m/%d\ -\ %H:%M\")}]   "状态行显示的内容  
-set statusline=%F%m%r%h%w\ [Type=%Y]\[Pos=%l,%v][%p%%]   "状态行显示的内容  
+set scrolloff=3     			" 光标移动到buffer的顶部和底部时保持3行距离
+"set statusline=%F%m%r%h%w\ [Format=%{&ff}]\ [Type=%Y]\[Pos=%l,%v][%p%%]\[Time=%{strftime(\"%Y/%m/%d\ -\ %H:%M\")}]   "状态行显示的内容
+set statusline=%F%m%r%h%w\ [Type=%Y]\[Pos=%l,%v][%p%%]   "状态行显示的内容
 set laststatus=2    			" 启动显示状态行(1),总是显示状态行(2)
 set cmdheight=2  				" 总是显示状态行
 set magic                   	" 设置魔术
@@ -231,7 +231,7 @@ autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 " ==> 共享剪贴板
-"set clipboard+=unnamed 
+"set clipboard+=unnamed
 
 " ==> 禁止生成临时文件,视情况自己改
 set nobackup
@@ -241,8 +241,8 @@ set noswapfile
 set noeb		" 去掉输入错误的提示声音
 set confirm		" 在处理未保存或只读文件的时候，弹出确认
 
-" ==> 代码补全 
-set completeopt=preview,menu 
+" ==> 代码补全
+set completeopt=preview,menu
 
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
@@ -261,28 +261,28 @@ autocmd! bufwritepost .vimrc source % 			" vimrc文件修改之后自动加载�
 "============================
 " 新文件标题
 "============================
-""定义函数SetTitle，自动插入文件头 
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py,*.lua exec ":call SetTitle()" 
-func! SetTitle() 
-	"如果文件类型为.sh文件 
-	if &filetype == 'sh' 
-		call setline(1,"\#!/bin/bash") 
-		call append(line("."), "") 
+""定义函数SetTitle，自动插入文件头
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py,*.lua exec ":call SetTitle()"
+func! SetTitle()
+	"如果文件类型为.sh文件
+	if &filetype == 'sh'
+		call setline(1,"\#!/bin/bash")
+		call append(line("."), "")
 	elseif &filetype == "lua"
 		call setline(1,"--$Id$")
 		call append(line("."),"")
 		"elseif &filetype == 'python'
 		"call setline(1,"#!/usr/bin/env python")
 		"call append(line("."),"# coding=utf-8")
-		"call append(line(".")+1, "") 
+		"call append(line(".")+1, "")
 		"    elseif &filetype == 'mkd'
 		"        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
-	else 
-		call setline(1, "/*************************************************************************") 
-		call append(line("."), "	> File Name: ".expand("%")) 
-		call append(line(".")+1, "	> Author: tangpf") 
-		call append(line(".")+2, "	> Created Time: ".strftime("%c")) 
-		call append(line(".")+3, " ************************************************************************/") 
+	else
+		call setline(1, "/*************************************************************************")
+		call append(line("."), "	> File Name: ".expand("%"))
+		call append(line(".")+1, "	> Author: tangpf")
+		call append(line(".")+2, "	> Created Time: ".strftime("%c"))
+		call append(line(".")+3, " ************************************************************************/")
 		call append(line(".")+4, "")
 	endif
 	if &filetype == 'cpp'
@@ -299,7 +299,7 @@ func! SetTitle()
 	"		call append(line(".")+7,"")
 	"	endif
 	"新建文件后，自动定位到文件末尾
-endfunc 
+endfunc
 autocmd BufNewFile * normal G
 
 
@@ -339,8 +339,8 @@ func! CompileRunGcc()
 	elseif &filetype == 'cpp'
 		exec "!g++ % -o %<"
 		exec "!time ./%<"
-	elseif &filetype == 'java' 
-		exec "!javac %" 
+	elseif &filetype == 'java'
+		exec "!javac %"
 		exec "!time java %<"
 	elseif &filetype == 'sh'
 		:!time bash %
@@ -398,7 +398,7 @@ endfunc
 
 
 "============================
-" 插件设置 
+" 插件设置
 "============================
 " ==> 括号显示增强 配置
 let g:rbpt_colorpairs = [
@@ -448,8 +448,8 @@ let g:ctrlp_follow_symlinks=1
 
 " ==> ctags 设置
 "set tags=tags;/
-"ctags"  
-"========================="  
+"ctags"
+"========================="
 set tags+=~/tags/systags
 "========================="
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
@@ -529,7 +529,7 @@ colorscheme molokai
 hi CursorLine cterm=NONE ctermbg=239
 " 实用mappings
 "转到定义 (ds=水平分割窗口,dv=垂直分割窗口，dt=在本窗口中跳转)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)	 
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
@@ -537,7 +537,7 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 let g:neocomplete#enable_at_startup = 1 "实时代码补全
 
 " ==> 自动补全 配置
-"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp 
+"au BufNewFile,BufRead,BufEnter *.cpp,*.hpp
 "set omnifunc=omni#cpp#complete#Main
 "set ofu=syntaxcomplete#Complete
 "imap <silent> ` <C-X><C-O>`
@@ -560,10 +560,10 @@ set encoding=utf-8
 set laststatus=2
 "let g:Powerline_symbols = 'fancy'
 "改变状态栏的分隔符
-let g:Powerline_symbols = 'unicode' 
+let g:Powerline_symbols = 'unicode'
 
 " ==> easygrep 插件设置（参考：http://www.jianshu.com/p/3fb1b2170540）
-let g:EasyGrepMode = 2     " All:0, Open Buffers:1, TrackExt:2, 
+let g:EasyGrepMode = 2     " All:0, Open Buffers:1, TrackExt:2,
 let g:EasyGrepCommand = 0  " Use vimgrep:0, grepprg:1,使用vimgrep
 let g:EasyGrepRecursive  = 1 " Recursive searching,递归搜索
 let g:EasyGrepIgnoreCase = 1 " not ignorecase:0,大小写敏感
