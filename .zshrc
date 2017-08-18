@@ -57,7 +57,7 @@ export GOPATH=$HOME/gopath
 export GOROOT=/usr/local/go
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:$GOROOT/bin:$GOPATH/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
-
+export TMUX_TMPDIR=$HOME/tmp
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -85,9 +85,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+#
+alias rm="rm -i"
 alias tmux="tmux -2"
 alias ta="tmux att"
 alias vim="/usr/local/bin/vim"
 alias date='date "+%Y-%m-%d %H:%M:%S"'
-[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
