@@ -1,0 +1,2 @@
+local_root=/var/ftp/pub
+virtual_use_local_privs=YES
