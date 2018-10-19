@@ -520,6 +520,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_build_constraints = 1
+let g:go_version_warning = 0
 let g:molokai_original = 1 "molokai 配色主题
 "let g:rehash256 = 1
 set t_Co=256
