@@ -218,11 +218,19 @@ if has("autocmd")
 				\   exe "normal g`\"" |
 				\ endif
 endif
-"启动vim时自动打开NERDTree
-"autocmd vimenter * NERDTree
-"当打开vim且没有文件时自动打开NERDTree
+" 启动vim时自动打开NERDTree
+autocmd vimenter * NERDTree
+
+" 当打开vim且没有文件时自动打开NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" 打开文件夹时,cd到对应的文件夹目录,并打开nerdtree,且焦点停留在nerdtree窗口
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
+
+" 打开文件时,同时打开nerdtree,且焦点停留在文件窗口
+autocmd VimEnter * if argc() == 1 && getftype(argv()[0]) == "file" && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | endif
+
 " 只剩 NERDTree时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
