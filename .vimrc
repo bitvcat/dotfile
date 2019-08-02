@@ -117,7 +117,7 @@ set ignorecase	" 搜索时忽略大小写
 set smartcase   " 有一个或以上大写字母时仍大小写敏感
 
 "==> 语言设置
-"set encoding=utf-8
+set encoding=utf-8
 "set langmenu=zh_CN.UTF-8
 "set helplang=cn
 
@@ -195,7 +195,9 @@ set showcmd         			" 输入的命令显示出来，看的清楚些
 set showmode
 set scrolloff=3     			" 光标移动到buffer的顶部和底部时保持3行距离
 "set statusline=%F%m%r%h%w\ [Format=%{&ff}]\ [Type=%Y]\[Pos=%l,%v][%p%%]\[Time=%{strftime(\"%Y/%m/%d\ -\ %H:%M\")}]   "状态行显示的内容
-set statusline=%F%m%r%h%w\ [Type=%Y]\[Pos=%l,%v][%p%%]   "状态行显示的内容
+"set statusline=%F%m%r%h%w\ [Type=%Y]\[Pos=%l,%v][%p%%]   "状态行显示的内容
+" 在被分割的窗口间显示空白，便于阅读(状态栏的反斜杠填充)
+set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2    			" 启动显示状态行(1),总是显示状态行(2)
 set cmdheight=2  				" 总是显示状态行
 set magic                   	" 设置魔术
@@ -254,9 +256,7 @@ set completeopt=preview,menu
 
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
 set report=0
-set fillchars=vert:\ ,stl:\ ,stlnc:\			" 在被分割的窗口间显示空白，便于阅读
 set scrolloff=3									" 光标移动到buffer的顶部和底部时保持3行距离
-set fillchars+=stl:\ ,stlnc:\
 
 
 "============================
@@ -565,8 +565,6 @@ let g:neocomplete#enable_at_startup = 1 "实时代码补全
 "set term=screen-256color
 
 " ==> vim-powerline相关配置
-set encoding=utf-8
-set laststatus=2
 "let g:Powerline_symbols = 'fancy'
 "改变状态栏的分隔符
 let g:Powerline_symbols = 'unicode'
