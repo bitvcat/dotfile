@@ -223,6 +223,9 @@ endif
 " 启动vim时自动打开NERDTree
 autocmd vimenter * NERDTree
 
+" 使用 enter 键打开/关闭文件，参考：https://stackoverflow.com/questions/7519074/in-vims-nerdtree-is-there-a-way-to-open-a-file-dir-using-the-space-key-or-tab
+let NERDTreeMapActivateNode='<Enter>'
+
 " 当打开vim且没有文件时自动打开NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
