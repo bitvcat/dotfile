@@ -99,6 +99,9 @@ Plugin 'dkprice/vim-easygrep'
 " ==> asyncrun
 Plugin 'skywind3000/asyncrun.vim'
 
+" ==> AnsiEsc
+Plugin 'powerman/vim-plugin-AnsiEsc'
+
 call vundle#end()
 filetype plugin indent on " 启动自动补全
 
